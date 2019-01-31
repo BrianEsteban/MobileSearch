@@ -54,15 +54,12 @@ public class IncludeCell extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        Plan = new javax.swing.JComboBox<>();
+        AsocietedPlan = new javax.swing.JComboBox<>();
         Camera = new javax.swing.JComboBox<>();
         ROM = new javax.swing.JComboBox<>();
         RAM = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         Image = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout DataPlanPanelLayout = new javax.swing.GroupLayout(DataPlanPanel);
@@ -125,23 +122,28 @@ public class IncludeCell extends javax.swing.JPanel {
 
         jLabel9.setText("Asocieted DataPlan:");
 
-        Plan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "SI", "NO" }));
-        Plan.addActionListener(new java.awt.event.ActionListener() {
+        AsocietedPlan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "SI", "NO" }));
+        AsocietedPlan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PlanActionPerformed(evt);
+                AsocietedPlanActionPerformed(evt);
             }
         });
 
-        Camera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "3", "4", "5", "6", "8", "12", "16", "18", "21" }));
+        Camera.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "3MP", "4MP", "5MP", "6MP", "8MP", "12MP", "16MP", "18MP", "21MP" }));
 
-        ROM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1", "2", "3", "4", "8", "10", "12", "14", "24", "32" }));
+        ROM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1GB", "2GB", "3GB", "4GB", "8GB", "10GB", "12GB", "14GB", "24GB", "32GB" }));
         ROM.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ROMActionPerformed(evt);
             }
         });
 
-        RAM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1", "2", "3", "4", "6", "8", "12", "14" }));
+        RAM.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1GB", "2GB", "3GB", "4GB", "6GB", "8GB", "12GB", "14GB" }));
+        RAM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RAMActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Attach Image:");
 
@@ -151,12 +153,6 @@ public class IncludeCell extends javax.swing.JPanel {
                 ImageActionPerformed(evt);
             }
         });
-
-        jLabel11.setText("GB");
-
-        jLabel12.setText("GB");
-
-        jLabel13.setText("MP");
 
         jLabel14.setText("mAh");
 
@@ -173,7 +169,7 @@ public class IncludeCell extends javax.swing.JPanel {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(Plan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AsocietedPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Aceptar)
                         .addGap(23, 23, 23))
@@ -181,46 +177,36 @@ public class IncludeCell extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel8))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(Camera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel13))
-                                            .addComponent(Batery, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                            .addComponent(Cost))
-                                        .addGap(9, 9, 9))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(ROM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel12))))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel3))
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(RAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel11))
-                                    .addComponent(Processor, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(Company))
-                                .addGap(9, 9, 9))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(2, 2, 2)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel2)
+                                                .addComponent(jLabel3))
+                                            .addComponent(jLabel4))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(Processor, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                            .addComponent(Company)
+                                            .addComponent(RAM, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel8))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(Batery, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                                .addComponent(Cost)
+                                                .addComponent(Camera, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(ROM, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(9, 9, 9)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(42, 42, 42)
@@ -248,24 +234,18 @@ public class IncludeCell extends javax.swing.JPanel {
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(RAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11))
+                    .addComponent(RAM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
-                        .addComponent(jLabel6)
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(ROM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(1, 1, 1))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(ROM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel12))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel10)
+                        .addGap(1, 1, 1)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,9 +253,7 @@ public class IncludeCell extends javax.swing.JPanel {
                                 .addComponent(jLabel8)
                                 .addGap(11, 11, 11))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(Camera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel13))
+                                .addComponent(Camera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(Batery, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -288,11 +266,11 @@ public class IncludeCell extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(Cost, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Aceptar)
                     .addComponent(jLabel9)
-                    .addComponent(Plan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AsocietedPlan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -306,11 +284,14 @@ public class IncludeCell extends javax.swing.JPanel {
       String cost = Cost.getText();
       String company = Company.getText();
       String processor = Processor.getText();
-      String batery = Batery.getText();
-      //String camera = Camera.getActionCommand();
-      //String RAM;
+      String batery = Batery.getText(); 
+      Object camera = Camera.getSelectedItem();
+      Object ram = RAM.getSelectedItem();
+      Object rom = ROM.getSelectedItem();
+      Object plan = AsocietedPlan.getSelectedItem();
       
-      if(cost.isEmpty() || company.isEmpty() || processor.isEmpty() || batery.isEmpty()){
+      if(cost.isEmpty() || company.isEmpty() || processor.isEmpty() || batery.isEmpty()
+              || camera.equals("Select") || ram.equals("Select") || rom.equals("Select") || plan.equals("Select")){
           JOptionPane.showMessageDialog(null, "Error de ingreso:\n"
                     + "Por favor ingrese todos los datos solicitados", "Información incompleta",
                     JOptionPane.ERROR_MESSAGE);
@@ -326,7 +307,9 @@ public class IncludeCell extends javax.swing.JPanel {
         FileWriter fw = null;
 
         try {
-            String data = Company.getText() + "," + Processor.getText() + "," +  Batery.getText() + "," + Cost.getText();
+            String data = Company.getText() + "," + Processor.getText() + "," + RAM.getSelectedItem() 
+                    + "," + ROM.getSelectedItem() + "," + Camera.getSelectedItem() + "," + Batery.getText() 
+                    + "," + Cost.getText() + "," + AsocietedPlan.getSelectedItem();
             File file = new File("C:/Users/Brian/Documents/celulares.txt");
             if (!file.exists()) {
                 file.createNewFile();
@@ -372,31 +355,32 @@ public class IncludeCell extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_ROMActionPerformed
 
-    private void PlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PlanActionPerformed
+    private void AsocietedPlanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AsocietedPlanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_PlanActionPerformed
+    }//GEN-LAST:event_AsocietedPlanActionPerformed
 
     private void ImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ImageActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ImageActionPerformed
+
+    private void RAMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RAMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RAMActionPerformed
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Aceptar;
+    private javax.swing.JComboBox<String> AsocietedPlan;
     private javax.swing.JTextField Batery;
     private javax.swing.JComboBox<String> Camera;
     private javax.swing.JTextField Company;
     private javax.swing.JTextField Cost;
     private javax.swing.JPanel DataPlanPanel;
     private javax.swing.JButton Image;
-    private javax.swing.JComboBox<String> Plan;
     private javax.swing.JTextField Processor;
     private javax.swing.JComboBox<String> RAM;
     private javax.swing.JComboBox<String> ROM;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

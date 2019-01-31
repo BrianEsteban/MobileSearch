@@ -44,9 +44,9 @@ public class DataPlanPanel extends javax.swing.JPanel {
         Cost = new javax.swing.JTextField();
         Aceptar = new javax.swing.JButton();
         Operator = new javax.swing.JTextField();
-        GB = new javax.swing.JTextField();
         SecondLine = new javax.swing.JTextField();
         TextMess = new javax.swing.JTextField();
+        GB = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout DataPlanPanelLayout = new javax.swing.GroupLayout(DataPlanPanel);
         DataPlanPanel.setLayout(DataPlanPanelLayout);
@@ -90,12 +90,6 @@ public class DataPlanPanel extends javax.swing.JPanel {
             }
         });
 
-        GB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GBActionPerformed(evt);
-            }
-        });
-
         SecondLine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SecondLineActionPerformed(evt);
@@ -107,6 +101,8 @@ public class DataPlanPanel extends javax.swing.JPanel {
                 TextMessActionPerformed(evt);
             }
         });
+
+        GB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "1GB", "2GB", "3GB", "4GB", "6GB", "8GB", "16GB", "32GB", "64GB" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -132,9 +128,9 @@ public class DataPlanPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(GB, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(SecondLine)))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(SecondLine, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(GB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(72, 72, 72)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -147,12 +143,10 @@ public class DataPlanPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(GB, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(GB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SecondLine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
@@ -183,12 +177,12 @@ public class DataPlanPanel extends javax.swing.JPanel {
 
     private void AceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AceptarActionPerformed
       String cost = Cost.getText();
-      String gb = GB.getText();
+      Object gb = GB.getSelectedItem();
       String operator = Operator.getText();
       String secondLine = SecondLine.getText();
       String textMess = TextMess.getText();
       
-      if(cost.isEmpty() || gb.isEmpty() || operator.isEmpty() || secondLine.isEmpty() || textMess.isEmpty()){
+      if(cost.isEmpty() || gb.equals("Select") || operator.isEmpty() || secondLine.isEmpty() || textMess.isEmpty()){
           JOptionPane.showMessageDialog(null, "Error de ingreso:\n"
                     + "Por favor ingrese todos los datos solicitados", "Información incompleta",
                     JOptionPane.ERROR_MESSAGE);
@@ -204,7 +198,7 @@ public class DataPlanPanel extends javax.swing.JPanel {
         FileWriter fw = null;
 
         try {
-            String data = GB.getText() + "," + SecondLine.getText() + "," + TextMess.getText()
+            String data = GB.getSelectedItem() + "," + SecondLine.getText() + "," + TextMess.getText()
                     + "," + Cost.getText() + "," + Operator.getText();
             File file = new File("C:/Users/Brian/Documents/planes.txt");
             if (!file.exists()) {
@@ -240,10 +234,6 @@ public class DataPlanPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_OperatorActionPerformed
 
-    private void GBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_GBActionPerformed
-
     private void SecondLineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SecondLineActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SecondLineActionPerformed
@@ -256,7 +246,7 @@ public class DataPlanPanel extends javax.swing.JPanel {
     private javax.swing.JButton Aceptar;
     private javax.swing.JTextField Cost;
     private javax.swing.JPanel DataPlanPanel;
-    private javax.swing.JTextField GB;
+    private javax.swing.JComboBox<String> GB;
     private javax.swing.JTextField Operator;
     private javax.swing.JTextField SecondLine;
     private javax.swing.JTextField TextMess;
