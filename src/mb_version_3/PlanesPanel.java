@@ -16,6 +16,32 @@ public class PlanesPanel extends javax.swing.JPanel {
      */
     public PlanesPanel() {
         initComponents();
+        
+        /*
+        try{
+        // Cargamos el buffer con el contenido del archivo
+        BufferedReader br = new BufferedReader (new FileReader ("C:/Users/Brian/Documents/planes.txt"));
+        
+        String s2;
+        String linea;
+        while((linea = br.readLine()) != null)
+        {
+            int numTokens = 0;
+            //System.out.println(linea);
+            StringTokenizer st = new StringTokenizer (linea, ",");
+            while(st.hasMoreTokens())
+            {
+                s2 = st.nextToken();
+                numTokens++;
+                System.out.println ("    Palabra " + numTokens + " es: " + s2);
+            }
+        }
+        }
+        catch(IOException e){
+            System.out.println("Error de archivo");
+        }
+        */
+        
     }
 
     /**
