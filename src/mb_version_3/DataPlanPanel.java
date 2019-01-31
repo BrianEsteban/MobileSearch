@@ -1,10 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase en donde se le añaden planes y se guardan en texto plano
  */
 package mb_version_3;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 
 /**
@@ -197,8 +199,36 @@ public class DataPlanPanel extends javax.swing.JPanel {
                     DataPlanPanel.removeAll();
                    // DataPlanPanel.add(Cost);
                     DataPlanPanel.setVisible(true);
-                  
-      }
+                    
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+
+        try {
+            String data = GB.getText() + "," + SecondLine.getText() + "," + TextMess.getText()
+                    + "," + Cost.getText() + "," + Operator.getText();
+            File file = new File("C:/Users/Brian/Documents/planes.txt");
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            fw = new FileWriter(file.getAbsoluteFile(), true);
+            bw = new BufferedWriter(fw);
+            bw.write(data);
+            bw.newLine();
+            System.out.println("información agregada!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                            //Cierra instancias de FileWriter y BufferedWriter
+                if (bw != null)
+                    bw.close();
+                if (fw != null)
+                    fw.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
         
     }//GEN-LAST:event_AceptarActionPerformed
 
